@@ -140,21 +140,23 @@ class ExamMonitor:
             
             # Determinar si está mirando fuera
             looking_away = False
-            direction = "CENTRO"
+            direction = "PANTALLA"
             
-            # Si los ojos están muy cerrados o el iris no es visible, probablemente está mirando abajo
+            # Si los ojos están muy cerrados o el iris no es visible la cabeza puede estar perfilada hacia abajo o a los costados
             if avg_opening < self.eye_open_threshold or not (left_iris_visible and right_iris_visible):
                 looking_away = True
-                direction = "ABAJO"
+                direction = "FUERA DE LA PANTALLA"
             else:
-                # Verificar posición horizontal
+                # Verificar posición horizontal del iris sin que la cabeza este perfilada
                 avg_x = (left_x + right_x) / 2
                 if avg_x < 0.4:
                     looking_away = True
-                    direction = "IZQUIERDA"
+                    direction = "FUERA DE LA PANTALLA (izquierda)"
                 elif avg_x > 0.6:
                     looking_away = True
-                    direction = "DERECHA"
+                    direction = "FUERA DE LA PANTALLA (derecha)"
+
+                
             
             # Debug visual
             if self.debug_info:
@@ -173,7 +175,7 @@ class ExamMonitor:
                            cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 0), 2)
                 cv2.putText(debug_frame, f"Iris visible: {left_iris_visible and right_iris_visible}", 
                            (10, 210), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 0), 2)
-                cv2.putText(debug_frame, f"Dirección: {direction}", (10, 240),
+                cv2.putText(debug_frame, f"Direccion: {direction}", (10, 240),
                            cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 0), 2)
             
             # Gestionar el tiempo
@@ -182,7 +184,7 @@ class ExamMonitor:
                 if self.looking_away_start is None:
                     self.looking_away_start = current_time
                 elif current_time - self.looking_away_start > self.time_threshold:
-                    alert_msg = f"Alerta: Mirada desviada ({direction}) por más de {self.time_threshold} segundos"
+                    alert_msg = f"Alerta: Mirada desviada ({direction}) por mas de {self.time_threshold} segundos"
                     self.alerts.append((datetime.now(), alert_msg))
                     self.total_time_looking_away += current_time - self.looking_away_start
                     self.looking_away_start = current_time
@@ -197,6 +199,10 @@ class ExamMonitor:
             
             cv2.putText(debug_frame, f"Tiempo total fuera: {self.total_time_looking_away:.1f}s", 
                        (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 0), 2)
+            if self.total_time_looking_away > self.alert_threshold:
+                cv2.putText(debug_frame, f"EXAMEN SUSPENDIDO POR CONDUCTA SOSPECHOSA", 
+                       (10, 100), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+
             
             return debug_frame, looking_away, (avg_opening, direction)
             
