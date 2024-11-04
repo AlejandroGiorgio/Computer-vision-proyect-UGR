@@ -65,20 +65,22 @@ time_threshold: Tiempo máximo permitido mirando fuera antes de generar una aler
 
 Estructura del Proyecto
 Copyexam-monitoring-system/
-│
-├── utils.py       # Funciones auxiliares y clase que maneja la deteccion de rostros
-├── main.py        # Archivo donde se corre el programa y se puede customizar tanto el time_threshold asi como el alert_thershold
-├── requirements.txt      # Dependencias del proyecto
-├── README.md            # Este archivo
-└── venv/                # Entorno virtual (generado durante la instalación)
-Limitaciones Conocidas
+
+- utils.py       # Funciones auxiliares y clase que maneja la deteccion de rostros
+- main.py        # Archivo donde se corre el programa y se puede customizar tanto el time_threshold asi como el alert_thershold
+- requirements.txt      # Dependencias del proyecto
+- README.md            # Este archivo
+- venv/                # Entorno virtual (generado durante la instalación)
+
+# Limitaciones Conocidas
 
 Requiere buena iluminación para una detección óptima
 La precisión puede variar según la calidad de la cámara
 No funciona con gafas de sol o elementos que obstaculicen la vista de los ojos
 
-Licencia
+# Licencia
 Este proyecto está bajo la Licencia MIT. Ver el archivo LICENSE para más detalles.
-Autor
+
+# Autor
 
 Alejandro Giorgio
