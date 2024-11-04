@@ -59,9 +59,9 @@ Configuración:
 
 Puede modificar los siguientes parámetros en la clase ExamMonitor:
 
-alert_threshold: Ángulo máximo permitido de desviación (por defecto: 30 grados)
+alert_threshold: tiempo máximo permitido de desviación antes de suspender el examen (por defecto: 30 segundos)
 
-time_threshold: Tiempo máximo permitido mirando fuera (por defecto: 2.0 segundos)
+time_threshold: Tiempo máximo permitido mirando fuera antes de generar una alerta (por defecto: 2.0 segundos)
 
 Estructura del Proyecto
 Copyexam-monitoring-system/
