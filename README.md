@@ -16,14 +16,12 @@ Sistema operativo: Windows 10/11, macOS, o Linux
 
 Instalación
 
-Clone el repositorio:
-
-bashCopygit clone https://github.com/yourusername/exam-monitoring-system.git
-cd exam-monitoring-system
+Clonar el repositorio:
+clone https://github.com/AlejandroGiorgio/Computer-vision-proyect-UGR.git
 
 Cree un entorno virtual:
 
-bashCopy# Windows
+# Windows
 python -m venv venv
 .\venv\Scripts\activate
 
@@ -31,25 +29,25 @@ python -m venv venv
 python3 -m venv venv
 source venv/bin/activate
 
-Instale las dependencias:
+## Instale las dependencias:
 
-bashCopypip install -r requirements.txt
-Uso
+install -r requirements.txt
+
+## Uso
 
 Active el entorno virtual (si no está activado):
 
-bashCopy# Windows
+# Windows
 .\venv\Scripts\activate
 
 # Linux/macOS
 source venv/bin/activate
 
-Ejecute el programa:
+## Ejecute el programa:
 
-bashCopypython exam_monitor.py
+python main.py
 
 Controles:
-
 
 Presione 'q' para salir del programa
 Las alertas se mostrarán en la pantalla cuando se detecte un desvío prolongado de la mirada
@@ -64,7 +62,8 @@ time_threshold: Tiempo máximo permitido mirando fuera (por defecto: 2.0 segundo
 Estructura del Proyecto
 Copyexam-monitoring-system/
 │
-├── exam_monitor.py       # Archivo principal del programa
+├── utils.py       # Funciones auxiliares y clase que maneja la deteccion de rostros
+├── main.py        # Archivo donde se corre el programa y se puede customizar tanto el time_threshold asi como el alert_thershold
 ├── requirements.txt      # Dependencias del proyecto
 ├── README.md            # Este archivo
 └── venv/                # Entorno virtual (generado durante la instalación)
@@ -74,22 +73,8 @@ Requiere buena iluminación para una detección óptima
 La precisión puede variar según la calidad de la cámara
 No funciona con gafas de sol o elementos que obstaculicen la vista de los ojos
 
-Contribuir
-
-Fork el proyecto
-Cree una nueva rama (git checkout -b feature/nueva-caracteristica)
-Commit sus cambios (git commit -am 'Añade nueva característica')
-Push a la rama (git push origin feature/nueva-caracteristica)
-Abra un Pull Request
-
 Licencia
 Este proyecto está bajo la Licencia MIT. Ver el archivo LICENSE para más detalles.
 Autor
 
 Alejandro Giorgio
-
-Agradecimientos
-
-MediaPipe por su excelente framework de visión por computadora
-OpenCV por sus herramientas de procesamiento de imágenes
-La comunidad de Python por sus contribuciones

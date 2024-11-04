@@ -36,7 +36,7 @@ def main():
         print("Error: No se pudo inicializar la cámara.")
         return
     
-    monitor = ExamMonitor(alert_threshold=20)
+    monitor = ExamMonitor(alert_threshold=20)                          #Customizar los thresholds tanto de las alertas como la tolerancia de suspension de examen
     print("Iniciando monitoreo... Presione 'q' para salir.")
     
     # Dar tiempo a la cámara para inicializarse
