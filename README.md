@@ -1,4 +1,4 @@
-Sistema de Detección de Trampas en Exámenes Virtuales
+# Sistema de Detección de Trampas en Exámenes Virtuales
 Este proyecto implementa un sistema de monitoreo en tiempo real que utiliza visión por computadora para detectar cuando un estudiante desvía su mirada de la pantalla durante un examen virtual, ayudando a mantener la integridad académica en entornos de evaluación remota.
 Características
 
@@ -49,14 +49,18 @@ python main.py
 
 Controles:
 
-Presione 'q' para salir del programa
-Las alertas se mostrarán en la pantalla cuando se detecte un desvío prolongado de la mirada
-Al finalizar, se generará un resumen de todas las alertas registradas
+Presione 'q' para salir del programa. 
 
-Configuración
+Las alertas se mostrarán en la pantalla cuando se detecte un desvío prolongado de la mirada. 
+
+Al finalizar, se generará un resumen de todas las alertas registradas. 
+
+Configuración: 
+
 Puede modificar los siguientes parámetros en la clase ExamMonitor:
 
 alert_threshold: Ángulo máximo permitido de desviación (por defecto: 30 grados)
+
 time_threshold: Tiempo máximo permitido mirando fuera (por defecto: 2.0 segundos)
 
 Estructura del Proyecto
