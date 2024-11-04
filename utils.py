@@ -151,10 +151,10 @@ class ExamMonitor:
                 avg_x = (left_x + right_x) / 2
                 if avg_x < 0.4:
                     looking_away = True
-                    direction = "FUERA DE LA PANTALLA (izquierda)"
+                    direction = "FUERA DE LA PANTALLA (derecha)"
                 elif avg_x > 0.6:
                     looking_away = True
-                    direction = "FUERA DE LA PANTALLA (derecha)"
+                    direction = "FUERA DE LA PANTALLA (izquierda)"
 
                 
             
